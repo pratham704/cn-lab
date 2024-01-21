@@ -1,0 +1,68 @@
+--------------------------------------client-----------------------------------------------
+
+import socket
+
+
+def start():
+
+    socket1 = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+    server_port=('localhost',12345)
+
+    while True:
+
+        message = input("enter the messasge")
+
+        socket1.sendto(message.encode(),server_port)
+
+
+if __name__=='__main__':
+    start()
+
+
+-----------------------------------------------------------------------------------------server down 
+
+import socket
+
+
+def start():
+
+    socket1 = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+    server_port=('localhost',12345)
+
+    socket1.bind(server_port)
+
+
+    while True:
+        print("Ready to recieve \n")
+
+        data,address=socket1.recvfrom(1024)
+        print(data.decode())
+        print("\n")
+        socket1.sendto(data,address)
+
+
+
+
+if __name__=='__main__':
+    start()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------tcp client---------------------
