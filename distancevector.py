@@ -1,9 +1,9 @@
 import networkx as nx
 
-def add_link(graph, node1, node2, cost):
-    graph.add_edge(node1, node2, weight=cost)
+def add_link(graph, start, end, cost):
+    graph.add_edge(start, end, weight=cost)
 
-nodes = [1, 2, 3, 4, 5]
+nodes = [1, 2, 3, 4]
 graph = nx.Graph()
 
 add_link(graph, 1, 2, 2)
@@ -11,15 +11,10 @@ add_link(graph, 1, 3, 2)
 add_link(graph, 1, 4, 1)
 add_link(graph, 2, 3, 3)
 add_link(graph, 2, 1, 2)
-add_link(graph, 2, 5, 1)
 add_link(graph, 3, 1, 2)
 add_link(graph, 3, 4, 4)
-add_link(graph, 3, 2, 3)
-add_link(graph, 3, 5, 1)
 add_link(graph, 4, 1, 1)
-add_link(graph, 4, 3, 4)
-add_link(graph, 5, 2, 1)
-add_link(graph, 5, 3, 1)
+
 
 for source in nodes:
     print(f"Routing table for Node {source}:")
